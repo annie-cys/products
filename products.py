@@ -10,3 +10,6 @@ print(products)
 
 #存取二維清單
 products[0][0] #products清單中的第0個小清單中的第零個東西
+for p in products:
+	print(p[0], '的價格為', p[1])#products中還有小清單
+	#p[0]是商品名稱, p[1]是價格
