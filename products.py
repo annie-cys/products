@@ -17,9 +17,12 @@ for p in products:
 #'abc' + '123' = 'abc123'# 字串相加即為合併 
 #'abc' * 3 = 'abcabcabc'
 
-with open('products.csv', 'w') as f: # 只是打開
+with open('products.csv', 'w', encoding = 'utf-8') as f: # 只是打開
 #會自動產生products.txt # w 寫入模式 #as f 把她當作f 簡稱
     f.write('商品,價格\n')#在for loop 前先寫欄位名稱
+    #亂碼 - 編碼出問題encoding
+    #寫入跟讀取檔案都牽扯到編碼
+    #encoding = 'utf-8' 解決中文編碼問題
     for p in products :
 	    f.write(p[0] + ',' + str(p[1]) + '\n')# \n換行符號 #真正寫入
 		#合成一個大字串 #不用逗點做區隔會全部擠在同一格
