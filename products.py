@@ -1,4 +1,16 @@
+# 讀取檔案
 products = []
+with open('products.csv' , 'r', encoding='utf-8') as f:
+    for line in f:
+        if '商品,價格' in line:
+            continue # 繼續 跳到下一個迴圈, 跳過第一回7 8 行
+            #continue並不會跳出迴圈 #寫在迴圈高位子:先寫條件 
+        name, price = line.strip().split(',')#切割字串,用逗點
+        #讀取時不讀換行符號,讀取完再切割 # 切割完分別存入
+        products.append([name, price])
+        #split切割完會一塊一塊的, 會變成清單
+print(products)
+
 while True:
     name = input('請輸入商品名稱:')
     if name == 'q':
@@ -17,7 +29,7 @@ for p in products:
 #'abc' + '123' = 'abc123'# 字串相加即為合併 
 #'abc' * 3 = 'abcabcabc'
 
-with open('products.csv', 'w', encoding = 'utf-8') as f: # 只是打開
+with open('products.csv', 'w', encoding='utf-8') as f: # 只是打開
 #會自動產生products.txt # w 寫入模式 #as f 把她當作f 簡稱
     f.write('商品,價格\n')#在for loop 前先寫欄位名稱
     #亂碼 - 編碼出問題encoding
